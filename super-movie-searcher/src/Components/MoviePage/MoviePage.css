@@ -1,0 +1,64 @@
+.MoviePage-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.MoviePage-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid green;
+  padding: 24px;
+}
+
+.MoviePage-image > img {
+  width: 175px;
+  height: 225px;
+  background-color: aquamarine;
+}
+
+.MoviePage-aside {
+  margin-top: 24px;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-size: 26px;
+  text-transform: capitalize;
+  margin-bottom: 24px;
+}
+
+.MoviePage-content {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.MoviePage-body {
+  border: 2px solid yellow;
+  padding: 0 24px;
+}
+
+.MoviePage-subtitle {
+  font-size: 20px;
+  font-family: sans-serif;
+  margin: 24px 0 10px 0;
+}
+
+.MoviePage-info {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media (min-width: 550px) {
+  .MoviePage-body {
+    padding: 0 64px;
+  }
+}
+
+@media (min-width: 765px) {
+  .MoviePage-main {
+    flex-direction: row;
+    width: 90%;
+  }
+}
