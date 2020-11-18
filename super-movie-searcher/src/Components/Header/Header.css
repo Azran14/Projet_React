@@ -4,9 +4,16 @@ header {
   background-color: #242627;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 .Header-link {
   text-decoration: none;
   color: white;
+}
+
+.Header-search {
+  padding: 5px;
+  margin-right: 5px;
 }
