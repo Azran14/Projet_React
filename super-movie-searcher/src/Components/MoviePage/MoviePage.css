@@ -61,4 +61,13 @@ h2 {
     flex-direction: row;
     width: 90%;
   }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .MoviePage-subtitle {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
 }
