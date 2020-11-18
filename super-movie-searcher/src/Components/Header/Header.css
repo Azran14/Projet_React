@@ -11,9 +11,10 @@ header {
 .Header-link {
   text-decoration: none;
   color: white;
+  margin-left: 15px;
 }
 
 .Header-search {
   padding: 5px;
-  margin-right: 5px;
+  margin-right: 15px;
 }

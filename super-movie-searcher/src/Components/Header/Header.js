@@ -15,7 +15,12 @@ const Header = () => {
       <Link className='Header-link' to='/'>
         Accueil
       </Link>
-      <input type='search' className='Header-search' onChange={handleChange} />
+      <input
+        type='search'
+        className='Header-search'
+        onChange={handleChange}
+        placeholder='Search a movie'
+      />
     </header>
   );
 };
