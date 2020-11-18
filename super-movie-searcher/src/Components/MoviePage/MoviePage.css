@@ -53,6 +53,11 @@ h2 {
     margin-top: 40px;
   }
 
+  .MoviePage-image > img {
+    width: 215px;
+    height: 325px;
+  }
+
   .MoviePage-body {
     padding: 0 64px;
   }
