@@ -49,6 +49,10 @@ h2 {
 }
 
 @media (min-width: 550px) {
+  .MoviePage-main {
+    margin-top: 40px;
+  }
+
   .MoviePage-body {
     padding: 0 64px;
   }
