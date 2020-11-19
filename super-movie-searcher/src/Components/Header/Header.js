@@ -12,15 +12,20 @@ const Header = () => {
 
   return (
     <header>
-      <Link className='Header-link' to='/'>
-        Accueil
-      </Link>
-      <input
-        type='search'
-        className='Header-search'
-        onChange={handleChange}
-        placeholder='Search a movie'
-      />
+      <const className = 'Header-content'>
+        <Link className='Header-link' to='/'>
+          歡迎
+        </Link>
+        <input
+          type='search'
+          className='Header-search'
+          onChange={handleChange}
+          placeholder='Search a movie'
+        />
+        <Link className='Header-account' to='/'>
+          
+        </Link>
+      </const>
     </header>
   );
 };
