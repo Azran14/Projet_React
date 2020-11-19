@@ -1,20 +1,38 @@
 header {
   width: 100%;
-  height: 60px;
+  height: 70px;
   background-color: #242627;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin: 0 auto;
 }
 
 .Header-link {
-  text-decoration: none;
+  font-size: 35px;
   color: white;
   margin-left: 15px;
+  text-decoration: none;
 }
 
 .Header-search {
-  padding: 5px;
-  margin-right: 15px;
+  padding: 8px;
+  width: 400px;
+  margin-right: 25px;
 }
+.Header-content{
+display: flex;
+align-items: center;
+width: 100%;
+max-width: 1366px;
+justify-content: space-between;
+
+}
+@media (min-width: 375px) {
+  .Header-search {
+    padding: 10px;
+    width: 50%;
+    max-width: 500px;
+    margin-right: 55px;
+  }
+  }

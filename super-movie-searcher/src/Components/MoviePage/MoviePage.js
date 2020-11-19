@@ -1,47 +1,55 @@
-import "./MoviePage.css";
+import { useState, useEffect } from 'react';
+import './MoviePage.css';
+import { getMovie } from '../../service/movie/movie';
+import { imgPath } from '../../utils/constant';
 
-import MovieCover from "../MovieCover/MovieCover";
+import MovieCover from '../MovieCover/MovieCover';
 
-const MoviePage = () => {
+const MoviePage = (id) => {
+  console.log(id.match.params.id, 'id');
+  const [movie, setMovie] = useState({});
+
+  useEffect(() => {
+    getMovie(id.match.params.id).then((data) => {
+      setMovie(data);
+    });
+  }, [id]);
+
+  console.log(movie, 'movie in movie page');
   return (
     <main>
-      <section className="MoviePage-main">
-        <div className="MoviePage-image">
-          <h2>title movie</h2>
-          <img src="" alt="" />
-          <div className="MoviePage-aside">
-            <div className="MoviePage-content">rating:</div>
-            <p className="MoviePage-content">
-              Release date: iseh fskefhsekfh esf hfsehfes fhuisefhesif
+      <section className='MoviePage-main'>
+        <div className='MoviePage-image'>
+          <h2>{movie.title}</h2>
+          <img src={imgPath + movie.poster_path} alt={movie.original_title} />
+          <div className='MoviePage-aside'>
+            <div className='MoviePage-content'>
+              rating: {movie.vote_average}
+            </div>
+            <p className='MoviePage-content'>
+              Release date: {movie.release_date}
             </p>
-            <p className="MoviePage-content">Runtime</p>
+            {/* <p className='MoviePage-content'>Runtime: {movie.runtime}</p> */}
           </div>
         </div>
-        <div className="MoviePage-body">
-          <h3 className="MoviePage-subtitle">Synopsis :</h3>
-          <p className="MoviePage-info">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id commodi
-            sunt expedita aspernatur veniam tempora et qui ad rerum voluptatibus
-            possimus necessitatibus rem dolores libero pariatur itaque aliquid,
-            magni, illum adipisci labore. Suscipit consectetur eligendi beatae
-            reiciendis veniam sequi, quas provident deleniti dolores temporibus
-            incidunt inventore soluta, velit quos unde assumenda fugiat
-            blanditiis fugit. Qui adipisci corporis ea distinctio, debitis
-            repudiandae dolore architecto soluta modi blanditiis explicabo
-            tenetur vitae incidunt. Alias voluptas assumenda eligendi ratione
-            dolore minus perferendis ipsa quas. Alias at dolorem consequuntur
-            illum nam assumenda. Cumque, dignissimos rem sit rerum animi ratione
-            libero ullam! Quos quia perferendis temporibus.
+        <div className='MoviePage-body'>
+          <h3 className='MoviePage-subtitle'>Synopsis :</h3>
+          <p className='MoviePage-info'>{movie.overview}</p>
+          <h3 className='MoviePage-subtitle'>Genres :</h3>
+          <p className='MoviePage-info'>
+            {movie?.genres?.map((genre) => genre.name + ', ')}
           </p>
-          <h3 className="MoviePage-subtitle">Genres :</h3>
-          <p className="MoviePage-info">Adventure, Action, Science Fiction</p>
-          <h3 className="MoviePage-subtitle">Producers :</h3>
-          <p className="MoviePage-info">Lucasfilm, 20th Century Fox</p>
+          <h3 className='MoviePage-subtitle'>Producers :</h3>
+          <p className='MoviePage-info'>
+            {movie?.production_companies?.map(
+              (production) => production.name + ' '
+            )}
+          </p>
         </div>
       </section>
-      <section className="MoviePage-suggestion">
-        <h3 className="MoviePage-subtitle">You may like</h3>
-        <div className="MoviePage-container">
+      <section className='MoviePage-suggestion'>
+        <h3 className='MoviePage-subtitle'>You may like</h3>
+        <div className='MoviePage-container'>
           <MovieCover />
           <MovieCover />
           <MovieCover />

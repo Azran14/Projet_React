@@ -1,0 +1,32 @@
+.MoviesPage-main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.MoviesPage-banniere {
+  width: 100%;
+  height: 107px;
+  margin-bottom: 14px;
+}
+.MoviesPage-imgBanniere {
+  background-color: blue;
+  width: 100%;
+  height: 107px;
+}
+
+.MoviesPage-affichage {
+  display: flex;
+  padding: 0 55px;
+}
+
+.MoviesPage-link {
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 550px) {
+  .MoviesPage-main {
+    display: flex;
+  }
+}
