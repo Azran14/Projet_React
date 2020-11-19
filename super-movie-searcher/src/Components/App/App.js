@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from '../Header/Header';
 import MoviesPage from '../MoviesPage/MoviesPage';
 import MoviePage from '../MoviePage/MoviePage';
+import Footer from '../Footer/Footer';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route exact path='/movie' component={MoviePage} />
         <Redirect to='/' />
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 };
