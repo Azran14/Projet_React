@@ -17,7 +17,7 @@ const Movie = ({ movie }) => {
       <div className="Movie-infos">
         <div className="Movie-rated">{movie.vote_average}</div>
         <h4 className="Movie-content">
-          {movie.original_title} ({movie.release_date})
+          {movie.original_title} ({movie.release_date.substring(0, 4)})
         </h4>
       </div>
     </div>

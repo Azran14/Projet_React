@@ -27,6 +27,9 @@
 .Movie-infos {
   text-align: center;
 }
+.Movie-rated {
+  margin: 5px 0;
+}
 
 .Movie-content {
   font-size: 8px;
@@ -40,16 +43,46 @@
   .Movie-infos {
     text-align: center;
   }
+  .Movie-content {
+    font-size: 14px;
+  }
 }
 @media (min-width: 665px) {
   .Movie-card {
     width: 150px;
     height: 259px;
   }
+  .Movie-rated {
+    margin: 10px 0;
+  }
+  .Movie-content {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 900px) {
   .Movie-card:last-child {
     display: flex;
+  }
+  .Movie-card {
+    width: 175px;
+    height: 306px;
+  }
+  .Movie-rated {
+    margin: 15px 0;
+  }
+
+  .Movie-content {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Movie-card {
+    width: 207px;
+    height: 397px;
+  }
+  .Movie-rated {
+    margin: 20px 0;
   }
 }

@@ -1,22 +1,36 @@
+main {
+  background-image: url(../../assets/backgroundimage.png);
+  background-repeat: repeat;
+}
+
 .MoviesPage-main {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-  border: 2px solid tomato;
 }
-
 .MoviesPage-banniere {
+  background-image: url(../../assets/heropng.png);
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
-  height: 107px;
-  margin-bottom: 14px;
 }
-.MoviesPage-imgBanniere {
-  background-color: blue;
-  width: 100%;
-  height: 107px;
+.MoviesPage-title {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  margin-top: 5%;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
-
+.MoviesPage-info {
+  display: flex;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #919191;
+}
 .MoviesPage-affichage {
   display: flex;
   padding: 0 55px;
@@ -25,5 +39,45 @@
 @media (min-width: 550px) {
   .MoviesPage-main {
     display: flex;
+  }
+  .MoviesPage-banniere {
+    background-image: url(../../assets/herodesktop.png);
+  }
+  .MoviesPage-title {
+    font-size: 60px;
+  }
+  .MoviesPage-info {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 665px) {
+  .MoviesPage-title {
+    font-size: 100px;
+  }
+  .MoviesPage-info {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 900px) {
+  .MoviesPage-title {
+    font-size: 200px;
+  }
+  .MoviesPage-info {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .MoviesPage-banniere {
+    background-image: url(../../assets/herodesktop.png);
+    height: 461px;
+  }
+  .MoviesPage-title {
+    font-size: 200px;
+  }
+  .MoviesPage-info {
+    font-size: 36px;
   }
 }

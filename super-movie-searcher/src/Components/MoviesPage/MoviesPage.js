@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import MoviesList from "../MoviesList/MoviesList";
 import "./MoviesPage.css";
-
+/* import heropng from "../../assets/heropng.png";
+ */
 function MoviesPage() {
   //TO DO : passer en props les objets de movies et mapper
   const [movies, setMovies] = useState([]);
@@ -22,7 +23,12 @@ function MoviesPage() {
       <div className="MoviesPage-main">
         {/* image à mettre */}
         <div className="MoviesPage-banniere">
-          <img className="MoviesPage-imgBanniere" src="" alt="" />
+          {/*           <img src={heropng} alt="hero" />
+           */}
+          <div className="MoviesPage-title">.Ciné</div>
+          <div className="MoviesPage-info">
+            Discover the best choices of movies.
+          </div>
         </div>
         <MoviesList movies={movies} title="Trending movies:" />
         {/* <div className="MoviesPage-trending">
