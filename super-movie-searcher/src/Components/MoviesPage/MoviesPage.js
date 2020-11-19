@@ -18,13 +18,14 @@ function MoviesPage() {
   }, []);
 
   return (
-    <div className="MoviesPage-main">
-      {/* image à mettre */}
-      <div className="MoviesPage-banniere">
-        <img className="MoviesPage-imgBanniere" src="" alt="" />
-      </div>
-      <MoviesList movies={movies} title="Trending movies:" />
-      {/* <div className="MoviesPage-trending">
+    <main>
+      <div className="MoviesPage-main">
+        {/* image à mettre */}
+        <div className="MoviesPage-banniere">
+          <img className="MoviesPage-imgBanniere" src="" alt="" />
+        </div>
+        <MoviesList movies={movies} title="Trending movies:" />
+        {/* <div className="MoviesPage-trending">
         <h3>Trending movies:</h3>
         <div className=" MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
@@ -32,8 +33,8 @@ function MoviesPage() {
           ))}
         </div>
       </div> */}
-      <MoviesList movies={movies} title="Recent movies:" />
-      {/* <div className="MoviesPage-recent">
+        <MoviesList movies={movies} title="Recent movies:" />
+        {/* <div className="MoviesPage-recent">
         <h3>Recent movies:</h3>
         <div className=" MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
@@ -41,8 +42,8 @@ function MoviesPage() {
           ))}
         </div>
       </div> */}
-      <MoviesList movies={movies} title="Top-rated movies:" />
-      {/* <div className="MoviesPage-top-rated">
+        <MoviesList movies={movies} title="Top-rated movies:" />
+        {/* <div className="MoviesPage-top-rated">
         <h3>Top-rated movies:</h3>
         <div className="MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
@@ -50,7 +51,8 @@ function MoviesPage() {
           ))}
         </div>
       </div> */}
-    </div>
+      </div>
+    </main>
   );
 }
 
