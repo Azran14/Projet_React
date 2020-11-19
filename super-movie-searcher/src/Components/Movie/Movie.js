@@ -1,20 +1,24 @@
 import React from 'react';
+import './Movie.css';
 
-
-
-
-const Movie = ({movie}) => {
-    console.log(movie.poster_path, 'poster'); //mettre un string
-    return(
-        <div className='movie-preview'>
-        <img src = {movie.poster_path} alt={movie.original_title}/>
-        <div className='movie-information'>
-            <span>{movie.vote_average}</span>
-            <h3>{movie.original_title} {movie.release_date}</h3>
-        </div>
+const Movie = ({ movie }) => {
+  // console.log(movie.poster_path, 'poster') //mettre un string
+  const imgPath = 'https://image.tmdb.org/t/p/original';
+  return (
+    <div className='Movie-card'>
+      <img
+        className='Movie-image'
+        src={imgPath + movie.poster_path}
+        alt={movie.original_title}
+      />
+      <div className='Movie-infos'>
+        <div className='Movie-rated'>{movie.vote_average}</div>
+        <h4 className='Movie-content'>
+          {movie.original_title} ({movie.release_date})
+        </h4>
+      </div>
     </div>
-    );
-    
+  );
 };
 
 export default Movie;
