@@ -1,31 +1,55 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
+import { useState, useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "semantic-ui-css/semantic.min.css";
+import { Dropdown } from "semantic-ui-react";
+import debounce from "lodash.debounce";
+
+import "./Header.css";
 
 const Header = () => {
-  const [movie, setMovie] = useState('');
-
-  function handleChange(event) {
-    console.log(event.target.value);
-    setMovie(event.target.value);
+  function useDebounce(callback, delay) {
+    const debouncedFn = useCallback(
+      debounce((...args) => callback(...args), delay),
+      [delay] // will recreate if delay changes
+    );
+    return debouncedFn;
   }
+
+  const [value, setValue] = useState("");
+  const [dbValue, saveToDb] = useState(""); // would be an API call normally
+  let dropDownOption = [];
+
+  const debouncedSave = useDebounce((nextValue) => saveToDb(nextValue), 1000);
+
+  useEffect(() => {
+    if (dbValue.length > 2) {
+    }
+  }, [dbValue]);
+
+  const handleChange = (event) => {
+    const { value: nextValue } = event.target;
+    setValue(nextValue);
+    debouncedSave(nextValue);
+  };
 
   return (
     <header>
-      <const className = 'Header-content'>
-        <Link className='Header-link' to='/'>
+      <div className="Header-content">
+        <Link className="Header-link" to="/">
           歡迎
         </Link>
-        <input
-          type='search'
-          className='Header-search'
+        <Dropdown
+          className="Header-search"
           onChange={handleChange}
-          placeholder='Search a movie'
+          placeholder="Search a movie"
+          // fluid
+          search
+          selection
+          value={value}
+          options={dropDownOption}
         />
-        <Link className='Header-account' to='/'>
-          
-        </Link>
-      </const>
+        <Link className="Header-account" to="/"></Link>
+      </div>
     </header>
   );
 };
