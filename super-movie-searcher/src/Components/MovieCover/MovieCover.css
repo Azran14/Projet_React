@@ -1,0 +1,23 @@
+.MovieCover {
+  margin: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MovieCover-img {
+  width: 175px;
+  height: 225px;
+  background-color: tomato;
+}
+
+.MovieCover-title {
+  margin-top: 10px;
+}
+
+@media (min-width: 1050px) {
+  .MovieCover-img {
+    width: 215px;
+    height: 325px;
+  }
+}
