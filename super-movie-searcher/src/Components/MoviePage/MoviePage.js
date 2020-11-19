@@ -4,7 +4,7 @@ import MovieCover from "../MovieCover/MovieCover";
 
 const MoviePage = () => {
   return (
-    <>
+    <main>
       <section className="MoviePage-main">
         <div className="MoviePage-image">
           <h2>title movie</h2>
@@ -47,7 +47,7 @@ const MoviePage = () => {
           <MovieCover />
         </div>
       </section>
-    </>
+    </main>
   );
 };
 

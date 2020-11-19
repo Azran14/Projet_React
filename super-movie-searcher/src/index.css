@@ -21,8 +21,16 @@ code {
 }
 
 #root {
+  width: 100%;
+}
+
+#root,
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+main {
   max-width: 1366px;
 }
