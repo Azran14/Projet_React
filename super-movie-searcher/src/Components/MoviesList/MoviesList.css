@@ -1,0 +1,9 @@
+.MoviesList {
+  width: 80%;
+}
+
+.MoviesList-items {
+  border: solid 2px tomato;
+  display: flex;
+  justify-content: space-evenly;
+}
