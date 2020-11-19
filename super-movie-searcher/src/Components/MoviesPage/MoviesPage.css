@@ -41,7 +41,7 @@ main {
   text-decoration: none;
 }
 
-@media (min-width: 550px) {
+@media (min-width: 350px) {
   .MoviesPage-main {
     display: flex;
   }

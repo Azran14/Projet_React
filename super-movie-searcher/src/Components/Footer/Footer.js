@@ -10,38 +10,28 @@ const Footer = () => {
     <footer>
       <div className="Footer-content">
         <div className="Logo-block">
-          <Link className="Footer-link" to="/">
-            歡迎
-          </Link>
-          <Link className="Footer-sublink" to="/">
-            © 2020
-          </Link>
+          <div className="Footer-link">歡迎</div>
+          <div className="Footer-sublink">© 2020</div>
         </div>
-        <div className="Information-block">
-          <Link className="Footer-information" to="/">
-            Information
-          </Link>
-          <Link className="Footer-subinfo" to="/">
-            News
-          </Link>
-          <Link className="Footer-subinfo" to="/">
-            Privacy policy
-          </Link>
-          <Link className="Footer-subinfo" to="/">
-            Conctact us
-          </Link>
-        </div>
-        <div className="follow-block">
-          <Link className="Footer-information" to="/">
-            Follow us
-          </Link>
-          <div className="logo-link">
-            <img className="logo" src={twitter} alt="React Logo" />
-            <img className="logo" src={facebook} alt="React Logo" />
-            <img className="logo" src={linkedin} alt="React Logo" />
-            <img className="logo" src={instagram} alt="React Logo" />
+        {
+          <div className="Footer-infos">
+            <div className="Information-block">
+              <div className="Footer-information">Information</div>
+              <div className="Footer-subinfo">News</div>
+              <div className="Footer-subinfo">Privacy policy</div>
+              <div className="Footer-subinfo">Conctact us</div>
+            </div>
+            <div className="follow-block">
+              <div className="Footer-information">Follow us</div>
+              <div className="logo-link">
+                <img className="logo" src={twitter} alt="React Logo" />
+                <img className="logo" src={facebook} alt="React Logo" />
+                <img className="logo" src={linkedin} alt="React Logo" />
+                <img className="logo" src={instagram} alt="React Logo" />
+              </div>
+            </div>
           </div>
-        </div>
+        }
       </div>
     </footer>
   );
