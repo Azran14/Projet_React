@@ -1,9 +1,8 @@
 import React from 'react';
+import { imgPath } from '../../utils/constant';
 import './Movie.css';
 
 const Movie = ({ movie }) => {
-  // console.log(movie.poster_path, 'poster') //mettre un string
-  const imgPath = 'https://image.tmdb.org/t/p/original';
   return (
     <div className='Movie-card'>
       <img

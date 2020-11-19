@@ -97,6 +97,10 @@ h2 {
     font-size: 36px;
   }
 
+  .MoviePage-producerLogo {
+    width: 50px;
+  }
+
   .MoviePage-subtitle {
     font-size: 24px;
     margin-bottom: 24px;
