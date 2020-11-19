@@ -48,6 +48,14 @@ h2 {
   line-height: 24px;
 }
 
+.MoviePage-suggestion {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
 @media (min-width: 550px) {
   .MoviePage-main {
     margin-top: 40px;
@@ -61,9 +69,14 @@ h2 {
   .MoviePage-body {
     padding: 0 64px;
   }
+
+  .MoviePage-container {
+    /* display: flex; */
+  }
 }
 
 @media (min-width: 765px) {
+  /* @media (min-width: 830px) { */
   .MoviePage-main {
     flex-direction: row;
     width: 90%;
@@ -88,4 +101,10 @@ h2 {
     font-size: 24px;
     margin-bottom: 24px;
   }
+  .MoviePage-container {
+    display: flex;
+  }
 }
+
+/* @media (min-width: 1050px) {
+} */

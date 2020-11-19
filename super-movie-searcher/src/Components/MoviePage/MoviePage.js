@@ -39,10 +39,13 @@ const MoviePage = () => {
           <p className="MoviePage-info">Lucasfilm, 20th Century Fox</p>
         </div>
       </section>
-      <section className="MoviePage-aside">
-        <MovieCover />
-        <MovieCover />
-        <MovieCover />
+      <section className="MoviePage-suggestion">
+        <h3 className="MoviePage-subtitle">You may like</h3>
+        <div className="MoviePage-container">
+          <MovieCover />
+          <MovieCover />
+          <MovieCover />
+        </div>
       </section>
     </>
   );
