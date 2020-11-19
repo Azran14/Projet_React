@@ -1,10 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "semantic-ui-css/semantic.min.css";
-import { Dropdown } from "semantic-ui-react";
 import debounce from "lodash.debounce";
 
 import "./Header.css";
+import Dropdown from "../Dropdown/Dropdown";
 
 const Header = () => {
   function useDebounce(callback, delay) {
@@ -15,22 +14,41 @@ const Header = () => {
     return debouncedFn;
   }
 
-  const [value, setValue] = useState("");
-  const [dbValue, saveToDb] = useState(""); // would be an API call normally
-  let dropDownOption = [];
+  // const [value, setValue] = useState("");
+  // const [dbValue, saveToDb] = useState(""); // would be an API call normally
+  // let dropDownOption = [];
 
-  const debouncedSave = useDebounce((nextValue) => saveToDb(nextValue), 1000);
+  // const handleChange = (event) => {
+  //   const { value: nextValue } = event.target;
+  //   setValue(nextValue);
+  //   debouncedSave(nextValue);
+  // };
+
+  const url =
+    "https://api.themoviedb.org/4/search/movie?api_key=b15f77463ee209064e6a74ac153c528c&query=";
+
+  function getMovies(query) {
+    return fetch(url + query).then((res) => res.json());
+  }
+
+  const [query, setQuery] = useState("");
+  const [isDrop, setIsDrop] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [data, setData] = useState({});
 
   useEffect(() => {
-    if (dbValue.length > 2) {
+    if (query.length > 2) {
+      getMovies(query).then((response) => setData(response.results));
+      setIsDrop(true);
     }
-  }, [dbValue]);
+  }, [query]);
 
-  const handleChange = (event) => {
-    const { value: nextValue } = event.target;
-    setValue(nextValue);
-    debouncedSave(nextValue);
-  };
+  const debouncedSave = useDebounce((nextValue) => setQuery(nextValue), 1000);
+
+  function handleChange(e) {
+    setInputValue(e.target.value);
+    debouncedSave(inputValue);
+  }
 
   return (
     <header>
@@ -38,16 +56,18 @@ const Header = () => {
         <Link className="Header-link" to="/">
           歡迎
         </Link>
-        <Dropdown
-          className="Header-search"
-          onChange={handleChange}
-          placeholder="Search a movie"
-          // fluid
-          search
-          selection
-          value={value}
-          options={dropDownOption}
-        />
+        <div>
+          <input
+            type="text"
+            placeholder="Search a movie"
+            value={inputValue}
+            onChange={handleChange}
+          />
+          {/* {isDrop && <div>{query}</div>} */}
+          {/* {isDrop && <div></div>} */}
+          {/* {isDrop && <Dropdown movies={data ? data : []} />} */}
+          {isDrop & (data instanceof Array) ? <Dropdown movies={data} /> : ""}
+        </div>
         <Link className="Header-account" to="/"></Link>
       </div>
     </header>
