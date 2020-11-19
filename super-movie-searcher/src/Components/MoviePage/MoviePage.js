@@ -1,5 +1,7 @@
 import "./MoviePage.css";
 
+import MovieCover from "../MovieCover/MovieCover";
+
 const MoviePage = () => {
   return (
     <>
@@ -37,7 +39,11 @@ const MoviePage = () => {
           <p className="MoviePage-info">Lucasfilm, 20th Century Fox</p>
         </div>
       </section>
-      <section>ici on verra</section>
+      <section className="MoviePage-aside">
+        <MovieCover />
+        <MovieCover />
+        <MovieCover />
+      </section>
     </>
   );
 };
