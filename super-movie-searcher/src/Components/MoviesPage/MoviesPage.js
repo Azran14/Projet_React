@@ -6,16 +6,28 @@ import "./MoviesPage.css";
 function MoviesPage() {
   //TO DO : passer en props les objets de movies et mapper
   const [movies, setMovies] = useState([]);
+  const [Recentmovies, setRecentMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMoviesMovies] = useState([]);
   //  const MOVIE_API="https://api.themoviedb.org/3/movie/550?api_key=b15f77463ee209064e6a74ac153c528c";
   const MOVIE_API =
     " https://api.themoviedb.org/4/list/1?page=1&api_key=b15f77463ee209064e6a74ac153c528c&sort_by=original_order.asc";
 
   useEffect(() => {
-    fetch(MOVIE_API)
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data.results);
-      });
+    getListMovies('original_order.asc').then((data) => {
+      setMovies(data.results);
+    });
+  }, []);
+
+  useEffect(() => {
+    getListMovies('release_date.desc').then((data) => {
+      setRecentMovies(data.results);
+    });
+  }, []);
+
+  useEffect(() => {
+    getListMovies('vote_average.desc').then((data) => {
+      setTopRatedMoviesMovies(data.results);
+    });
   }, []);
 
   return (
@@ -35,7 +47,9 @@ function MoviesPage() {
         <h3>Trending movies:</h3>
         <div className=" MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
-            <Movie key={movie.id} movie={movie} />
+            <Link className='MoviesPage-link' to={`/movie/${movie.id}`}>
+              <Movie key={movie.id} movie={movie} />
+            </Link>
           ))}
         </div>
       </div> */}
@@ -45,6 +59,7 @@ function MoviesPage() {
         <div className=" MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
             <Movie key={movie.id} movie={movie} />
+
           ))}
         </div>
       </div> */}
@@ -54,6 +69,7 @@ function MoviesPage() {
         <div className="MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
             <Movie key={movie.id} movie={movie} />
+
           ))}
         </div>
       </div> */}

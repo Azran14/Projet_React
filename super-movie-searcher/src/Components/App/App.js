@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path='/' component={MoviesPage} />
-        <Route exact path='/movie' component={MoviePage} />
+        <Route exact path='/movie/:id' component={MoviePage} />
         <Redirect to='/' />
       </Switch>
       <Footer />

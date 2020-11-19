@@ -36,6 +36,11 @@ main {
   padding: 0 55px;
 }
 
+.MoviesPage-link {
+  color: white;
+  text-decoration: none;
+}
+
 @media (min-width: 550px) {
   .MoviesPage-main {
     display: flex;
