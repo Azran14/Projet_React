@@ -4,13 +4,23 @@
   background: #252525;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  width: 76px;
+  width: 85px;
   height: 147px;
-  margin: 10px 13px 10px 0;
+  /*   margin: 10px 13px 10px 0;
+ */
+  overflow: hidden;
 }
-
+.Movie-card:last-child {
+  display: none;
+}
+.Movie-imageContainer {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  height: 70%;
+}
 .Movie-image {
-  width: 76px;
+  width: 100%;
   height: 115, 23px;
 }
 
@@ -24,44 +34,22 @@
 
 @media (min-width: 550px) {
   .Movie-card {
-    display: flex;
-    flex-direction: column;
-    background: #252525;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    width: 135px;
-    height: 200px;
-    align-items: center;
-    margin: 10px 13px 10px 0;
+    width: 125px;
+    height: 216px;
   }
-
-  .Movie-image {
-    width: 110px;
-  }
-
   .Movie-infos {
     text-align: center;
   }
 }
-
-@media (min-width: 765px) {
+@media (min-width: 665px) {
   .Movie-card {
+    width: 150px;
+    height: 259px;
+  }
+}
+
+@media (min-width: 900px) {
+  .Movie-card:last-child {
     display: flex;
-    flex-direction: column;
-    background: #252525;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    width: 76px;
-    height: 147px;
-    margin: 10px 13px 10px 0;
-  }
-
-  .Movie-image {
-    width: 76px;
-    height: 115, 23px;
-  }
-
-  .Movie-infos {
-    text-align: center;
   }
 }

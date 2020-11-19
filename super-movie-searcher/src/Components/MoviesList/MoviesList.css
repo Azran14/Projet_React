@@ -1,9 +1,13 @@
 .MoviesList {
+  margin-bottom: 24px;
   width: 80%;
 }
 
 .MoviesList-items {
-  border: solid 2px tomato;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+.MoviesList-title {
+  margin-bottom: 10px;
 }

@@ -7,7 +7,7 @@ function MoviesList({ movies, title }) {
     <section className="MoviesList">
       <h3 className="MoviesList-title">{title}</h3>
       <div className="MoviesList-items">
-        {movies.slice(0, 3).map((movie) => (
+        {movies.slice(0, 4).map((movie) => (
           <Movie key={movie.id} movie={movie} />
         ))}
       </div>

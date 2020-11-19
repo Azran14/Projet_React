@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Movie from "../Movie/Movie";
 import MoviesList from "../MoviesList/MoviesList";
 import "./MoviesPage.css";
 
@@ -33,24 +32,24 @@ function MoviesPage() {
           ))}
         </div>
       </div> */}
-
-      <div className="MoviesPage-recent">
+      <MoviesList movies={movies} title="Recent movies:" />
+      {/* <div className="MoviesPage-recent">
         <h3>Recent movies:</h3>
         <div className=" MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
             <Movie key={movie.id} movie={movie} />
           ))}
         </div>
-      </div>
-
-      <div className="MoviesPage-top-rated">
+      </div> */}
+      <MoviesList movies={movies} title="Top-rated movies:" />
+      {/* <div className="MoviesPage-top-rated">
         <h3>Top-rated movies:</h3>
         <div className="MoviesPage-affichage">
           {movies.slice(0, 3).map((movie) => (
             <Movie key={movie.id} movie={movie} />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
