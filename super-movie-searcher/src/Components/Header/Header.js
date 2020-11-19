@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
 
 import "./Header.css";
+
+import icon from "../../assets/user.svg";
+
 import Dropdown from "../Dropdown/Dropdown";
+
 
 const Header = () => {
   function useDebounce(callback, delay) {
@@ -58,16 +62,26 @@ const Header = () => {
         <Link className="Header-link" to="/">
           歡迎
         </Link>
-        <div>
+        <div> 
           <input
             type="text"
             placeholder="Search a movie"
             value={inputValue}
+            className="Header-search"
             onChange={handleChange}
           />
-          {isDrop & (data.length !== 0) ? <Dropdown movies={data} /> : ""}
+            {isDrop & (data.length !== 0) ? <Dropdown movies={data} /> : ""}
         </div>
-        <Link className="Header-account" to="/"></Link>
+        
+        <Link className="Header-account" to="/">
+          <div className="Header-icon">
+            <img src={icon} alt="user" />
+          </div>
+        </Link>
+        <div className="Header-sign">
+          <div className="Header-signin">Sign In</div>
+          <div className="Header-signup">Sign Up</div>
+        </div>
       </div>
     </header>
   );
