@@ -38,7 +38,9 @@ const Header = () => {
 
   useEffect(() => {
     if (query.length > 2) {
-      getMovies(query).then((response) => setData(response.results));
+      getMovies(query).then((response) =>
+        setData(response.results.splice(0, 4))
+      );
       setIsDrop(true);
     }
   }, [query]);
