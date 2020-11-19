@@ -34,7 +34,7 @@ const Header = () => {
   const [query, setQuery] = useState("");
   const [isDrop, setIsDrop] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     if (query.length > 2) {
@@ -63,10 +63,7 @@ const Header = () => {
             value={inputValue}
             onChange={handleChange}
           />
-          {/* {isDrop && <div>{query}</div>} */}
-          {/* {isDrop && <div></div>} */}
-          {/* {isDrop && <Dropdown movies={data ? data : []} />} */}
-          {isDrop & (data instanceof Array) ? <Dropdown movies={data} /> : ""}
+          {isDrop & (data.length !== 0) ? <Dropdown movies={data} /> : ""}
         </div>
         <Link className="Header-account" to="/"></Link>
       </div>

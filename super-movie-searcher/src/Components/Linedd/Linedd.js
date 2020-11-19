@@ -1,4 +1,6 @@
 function Linedd({ movie }) {
+  console.log("loaded");
+
   return (
     <div className="Linedd">
       <div className="Linedd-img"></div>
