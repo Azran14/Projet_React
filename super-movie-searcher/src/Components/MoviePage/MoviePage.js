@@ -41,13 +41,9 @@ const MoviePage = (id) => {
           </p>
           <h3 className='MoviePage-subtitle'>Producers :</h3>
           <p className='MoviePage-info'>
-            {movie?.production_companies?.map((production) => (
-              <img
-                className='MoviePage-producerLogo'
-                src={imgPath + production.logo_path}
-                alt=''
-              />
-            ))}
+            {movie?.production_companies?.map(
+              (production) => production.name + ' '
+            )}
           </p>
         </div>
       </section>
