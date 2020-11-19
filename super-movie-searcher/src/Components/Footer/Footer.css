@@ -45,6 +45,30 @@ footer {
   display: flex;
   flex-direction: column;
 }
-.Logo-block {
+.follow-block {
   align-items: center;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+.logo {
+  margin-top: 5px;
+  height: 20px;
+  padding: 1px;
+}
+
+@media (max-width: 765px) {
+  .Footer-link {
+    font-size: 10px;
+  }
+  .Footer-information {
+    font-size: 12px;
+  }
+  .Footer-subinfo {
+    font-size: 10px;
+  }
+  .Information-block {
+    margin-left: 10px;
+  }
 }

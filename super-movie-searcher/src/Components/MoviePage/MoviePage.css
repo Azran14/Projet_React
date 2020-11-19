@@ -48,6 +48,10 @@ h2 {
   line-height: 24px;
 }
 
+.MoviePage-producerLogo {
+  width: 50px;
+}
+
 .MoviePage-suggestion {
   width: 100%;
   display: flex;
