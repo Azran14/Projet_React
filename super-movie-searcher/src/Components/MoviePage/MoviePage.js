@@ -1,21 +1,25 @@
-import './MoviePage.css';
+import "./MoviePage.css";
+
+import MovieCover from "../MovieCover/MovieCover";
 
 const MoviePage = () => {
   return (
     <>
-      <section className='MoviePage-main'>
-        <div className='MoviePage-image'>
+      <section className="MoviePage-main">
+        <div className="MoviePage-image">
           <h2>title movie</h2>
-          <img src='' alt='' />
-          <div>
-            <div>raiting:</div>
-            <p>Release date</p>
-            <p>Run Time</p>
+          <img src="" alt="" />
+          <div className="MoviePage-aside">
+            <div className="MoviePage-content">rating:</div>
+            <p className="MoviePage-content">
+              Release date: iseh fskefhsekfh esf hfsehfes fhuisefhesif
+            </p>
+            <p className="MoviePage-content">Runtime</p>
           </div>
         </div>
-        <div className='MoviePage-body'>
-          <h3>Synopsis</h3>
-          <p>
+        <div className="MoviePage-body">
+          <h3 className="MoviePage-subtitle">Synopsis :</h3>
+          <p className="MoviePage-info">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id commodi
             sunt expedita aspernatur veniam tempora et qui ad rerum voluptatibus
             possimus necessitatibus rem dolores libero pariatur itaque aliquid,
@@ -29,9 +33,20 @@ const MoviePage = () => {
             illum nam assumenda. Cumque, dignissimos rem sit rerum animi ratione
             libero ullam! Quos quia perferendis temporibus.
           </p>
+          <h3 className="MoviePage-subtitle">Genres :</h3>
+          <p className="MoviePage-info">Adventure, Action, Science Fiction</p>
+          <h3 className="MoviePage-subtitle">Producers :</h3>
+          <p className="MoviePage-info">Lucasfilm, 20th Century Fox</p>
         </div>
       </section>
-      <section>ici on verra</section>
+      <section className="MoviePage-suggestion">
+        <h3 className="MoviePage-subtitle">You may like</h3>
+        <div className="MoviePage-container">
+          <MovieCover />
+          <MovieCover />
+          <MovieCover />
+        </div>
+      </section>
     </>
   );
 };
