@@ -1,0 +1,33 @@
+.MoviesList {
+  margin-bottom: 24px;
+  width: 80%;
+}
+
+.MoviesList-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.MoviesList-title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+@media (min-width: 665px) {
+  .MoviesList {
+    margin-bottom: 74px;
+  }
+  .MoviesList-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+@media (min-width: 900px) {
+  .MoviesList-title {
+    margin-bottom: 30px;
+
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
