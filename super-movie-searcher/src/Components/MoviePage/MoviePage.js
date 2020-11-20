@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import './MoviePage.css';
-import ReactStars from 'react-rating-stars-component';
+// import ReactStars from 'react-rating-stars-component';
 import { imgPath } from '../../utils/constant';
 import { getMovie, getMovieByGenre } from '../../service/movie/movie';
 
 import MovieCover from '../MovieCover/MovieCover';
 
 const MoviePage = (id) => {
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState({});
   const [movieSuggestion, setMovieSuggestion] = useState([]);
 
   useEffect(() => {
@@ -21,16 +21,16 @@ const MoviePage = (id) => {
     });
   }, [movie.genres]);
 
-  if (movie === null) {
-    return null;
-  }
+  // if (movie === null) {
+  //   return null;
+  // }
 
-  const rateParams = {
-    edit: false,
-    isHalf: true,
-    value: movie.vote_average / 2,
-    size: 25,
-  };
+  // const rateParams = {
+  //   edit: false,
+  //   isHalf: true,
+  //   value: movie.vote_average / 2,
+  //   size: 25,
+  // };
 
   return (
     <main>
@@ -39,7 +39,8 @@ const MoviePage = (id) => {
           <h2>{movie.title}</h2>
           <img src={imgPath + movie.poster_path} alt={movie.original_title} />
           <div className='MoviePage-aside'>
-            <ReactStars {...rateParams} />
+            {/* <ReactStars {...rateParams} /> */}
+            Note: {movie.vote_average} /10
             <p className='MoviePage-content'>
               Release date: {movie.release_date}
             </p>
