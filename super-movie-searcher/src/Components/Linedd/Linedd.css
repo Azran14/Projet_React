@@ -3,6 +3,8 @@
   display: flex;
   margin-bottom: 4px;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
 }
 
 .Linedd:hover {
