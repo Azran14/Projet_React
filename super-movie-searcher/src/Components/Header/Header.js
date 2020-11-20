@@ -57,20 +57,25 @@ const Header = () => {
     debouncedSave(inputValue);
   }
 
+  function handleBlur(e) {
+    setTimeout(() => {
+      setIsDrop(false);
+    }, 100);
+  }
+
   return (
     <header>
       <div className="Header-content">
         <Link className="Header-link" to="/">
           歡迎
         </Link>
-        <div>
+        <div onBlur={handleBlur}>
           <input
             type="text"
             placeholder="Search a movie"
             value={inputValue}
             className="Header-search"
             onChange={handleChange}
-            onBlur={() => setIsDrop(false)}
           />
           {isDrop & (data.length !== 0) ? <Dropdown movies={data} /> : ""}
         </div>
