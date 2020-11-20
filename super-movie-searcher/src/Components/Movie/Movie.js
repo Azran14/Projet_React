@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from "react";
 //import Rating from "../Rating/Rating.js";
 import "./Movie.css";
@@ -14,24 +15,24 @@ const Movie = ({ movie }) => {
     isHalf: true,
     size: 25,
   };
+  
 
   return (
-    <div className="Movie-card">
-      <div className="Movie-imageContainer">
+    <Link to={`/movie/${movie.id}`} className='Movie-card Movie-link'>
+      <div className='Movie-imageContainer'>
         <img
-          className="Movie-image"
+          className='Movie-image'
           src={imgPath + movie.poster_path}
           alt={movie.original_title}
         />
       </div>
-
       <div className="Movie-infos">
         <ReactStars className="Movie-rated" {...rateParams} />
         <h4 className="Movie-content">
           {movie.original_title} ({movie.release_date.substring(0, 4)})
         </h4>
       </div>
-    </div>
+    </Link>
   );
 };
 

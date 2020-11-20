@@ -5,8 +5,8 @@ import "./Dropdown.css";
 function Dropdown({ movies }) {
   return (
     <div className="Dropdown">
-      {movies.map((movie) => (
-        <Linedd movie={movie} />
+      {movies.map((movie, i) => (
+        <Linedd key={i} movie={movie} />
       ))}
     </div>
   );

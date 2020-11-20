@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import "./MoviePage.css";
-import { getMovie } from "../../service/movie/movie";
 import ReactStars from "react-rating-stars-component";
 import { imgPath } from "../../utils/constant";
+import { getMovie, getMovieByGenre } from '../../service/movie/movie';
 
 import MovieCover from "../MovieCover/MovieCover";
 
 const MoviePage = (id) => {
-  console.log(id.match.params.id, "id");
   const [movie, setMovie] = useState(null);
+  const [movieSuggestion, setMovieSuggestion] = useState([]);
 
   useEffect(() => {
     getMovie(id.match.params.id).then((data) => {
@@ -26,6 +26,12 @@ const MoviePage = (id) => {
     value: movie.vote_average / 2,
     size: 25,
   };
+
+  useEffect(() => {
+    getMovieByGenre(movie?.genres?.[0].id).then((data) => {
+      setMovieSuggestion(data);
+    });
+  }, [movie.genres]);
 
   return (
     <main>
@@ -56,12 +62,12 @@ const MoviePage = (id) => {
           </p>
         </div>
       </section>
-      <section className="MoviePage-suggestion">
-        <h3 className="MoviePage-subtitle">You may like</h3>
-        <div className="MoviePage-container">
-          <MovieCover />
-          <MovieCover />
-          <MovieCover />
+      <section className='MoviePage-suggestion'>
+        <h3 className='MoviePage-subtitle'>You may like</h3>
+        <div className='MoviePage-container'>
+          {movieSuggestion.results?.slice(0, 3).map((movie) => (
+            <MovieCover key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
     </main>

@@ -1,11 +1,18 @@
-import "./MovieCover.css";
+import './MovieCover.css';
+import { imgPath } from '../../utils/constant';
+import { Link } from 'react-router-dom';
 
-function MovieCover() {
+function MovieCover({ movie }) {
   return (
-    <div className="MovieCover">
-      <div className="MovieCover-img"></div>
-      <h4 className="MovieCover-title">Movie Title</h4>
-    </div>
+    <Link to={`/movie/${movie.id}`} className='MovieCover MovieCover-link '>
+      <div></div>
+      <img
+        className='MovieCover-img'
+        src={imgPath + movie.poster_path}
+        alt={movie.original_title}
+      />
+      <h4 className='MovieCover-title'>{movie.title}</h4>
+    </Link>
   );
 }
 
