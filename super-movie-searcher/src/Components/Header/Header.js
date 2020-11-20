@@ -8,7 +8,6 @@ import icon from "../../assets/user.svg";
 
 import Dropdown from "../Dropdown/Dropdown";
 
-
 const Header = () => {
   function useDebounce(callback, delay) {
     const debouncedFn = useCallback(
@@ -46,6 +45,8 @@ const Header = () => {
         setData(response.results.splice(0, 4))
       );
       setIsDrop(true);
+    } else {
+      setIsDrop(false);
     }
   }, [query]);
 
@@ -56,13 +57,19 @@ const Header = () => {
     debouncedSave(inputValue);
   }
 
+  function handleBlur(e) {
+    setTimeout(() => {
+      setIsDrop(false);
+    }, 100);
+  }
+
   return (
     <header>
       <div className="Header-content">
         <Link className="Header-link" to="/">
           歡迎
         </Link>
-        <div> 
+        <div onBlur={handleBlur}>
           <input
             type="text"
             placeholder="Search a movie"
@@ -70,9 +77,9 @@ const Header = () => {
             className="Header-search"
             onChange={handleChange}
           />
-            {isDrop & (data.length !== 0) ? <Dropdown movies={data} /> : ""}
+          {isDrop & (data.length !== 0) ? <Dropdown movies={data} /> : ""}
         </div>
-        
+
         <Link className="Header-account" to="/">
           <div className="Header-icon">
             <img src={icon} alt="user" />
