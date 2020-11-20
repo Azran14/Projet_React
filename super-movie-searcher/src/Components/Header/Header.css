@@ -29,6 +29,7 @@ header {
   border: 1px solid #fff;
   box-sizing: border-box;
   border-radius: 6px;
+  color: white;
 }
 .Header-sign {
   display: none;
