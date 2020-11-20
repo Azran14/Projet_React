@@ -24,7 +24,6 @@ header {
   background: url(../../assets/loop.svg) no-repeat 15px 11px;
   padding: 8px 8px 8px 30px;
   width: 200px;
-  margin-right: 25px;
   background-color: #252525;
   border: 1px solid #fff;
   box-sizing: border-box;
@@ -53,6 +52,9 @@ header {
 }
 @media (min-width: 900px) {
   .Header-icon {
+    display: none;
+  }
+  .Header-account {
     display: none;
   }
   .Header-search {
