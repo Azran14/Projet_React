@@ -29,7 +29,6 @@ h2 {
 }
 
 .MoviePage-content {
-  margin-right: 85px;
   font-size: 16px;
 }
 
@@ -110,5 +109,15 @@ h2 {
   }
 }
 
-/* @media (min-width: 1050px) {
-} */
+@media (min-width: 764px) {
+  .MoviePage-content {
+    margin-right: 35px;
+    font-size: 16px;
+  }
+}
+@media (min-width: 768px) {
+  .MoviePage-content {
+    margin-right: 85px;
+    font-size: 16px;
+  }
+}
