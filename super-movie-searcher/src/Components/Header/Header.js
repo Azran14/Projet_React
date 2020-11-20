@@ -60,7 +60,7 @@ const Header = () => {
   function handleBlur(e) {
     setTimeout(() => {
       setIsDrop(false);
-    }, 100);
+    }, 200);
   }
 
   return (

@@ -1,21 +1,29 @@
 import { useState, useEffect } from 'react';
 import './MoviePage.css';
-import { getMovie } from '../../service/movie/movie';
+import { getMovie, getMovieByGenre } from '../../service/movie/movie';
 import { imgPath } from '../../utils/constant';
+
 
 import MovieCover from '../MovieCover/MovieCover';
 
 const MoviePage = (id) => {
   console.log(id.match.params.id, 'id');
   const [movie, setMovie] = useState({});
+  const [movieSuggestion, setMovieSuggestion] = useState([]);
 
   useEffect(() => {
     getMovie(id.match.params.id).then((data) => {
       setMovie(data);
     });
   }, [id]);
+  
+  // useEffect(()=>{
+  //   getMovieByGenre(movie.genres[0].id).then((data)=>{
+  //     setMovieSuggestion(data);
+  //   })
+  // },[movie.genres]);
 
-  console.log(movie, 'movie in movie page');
+  console.log(movieSuggestion, 'movie in movie page');
   return (
     <main>
       <section className='MoviePage-main'>

@@ -9,3 +9,10 @@ export function getMovie(id) {
     `https://api.themoviedb.org/3/movie/${id}?api_key=b15f77463ee209064e6a74ac153c528c`
   ).then((res) => res.json());
 }
+
+export function getMovieByGenre(params){
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=b15f77463ee209064e6a74ac153c528c&page=1&with_genres=${params}`
+  ).then((res) => res.json());
+  
+}
