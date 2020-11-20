@@ -3,7 +3,6 @@ import './MoviePage.css';
 import { getMovie, getMovieByGenre } from '../../service/movie/movie';
 import { imgPath } from '../../utils/constant';
 
-
 import MovieCover from '../MovieCover/MovieCover';
 
 const MoviePage = (id) => {
@@ -16,14 +15,13 @@ const MoviePage = (id) => {
       setMovie(data);
     });
   }, [id]);
-  
-  // useEffect(()=>{
-  //   getMovieByGenre(movie.genres[0].id).then((data)=>{
-  //     setMovieSuggestion(data);
-  //   })
-  // },[movie.genres]);
 
-  console.log(movieSuggestion, 'movie in movie page');
+  useEffect(() => {
+    getMovieByGenre(movie?.genres?.[0].id).then((data) => {
+      setMovieSuggestion(data);
+    });
+  }, [movie.genres]);
+
   return (
     <main>
       <section className='MoviePage-main'>
@@ -58,9 +56,9 @@ const MoviePage = (id) => {
       <section className='MoviePage-suggestion'>
         <h3 className='MoviePage-subtitle'>You may like</h3>
         <div className='MoviePage-container'>
-          <MovieCover />
-          <MovieCover />
-          <MovieCover />
+          {movieSuggestion.results?.slice(0, 3).map((movie) => (
+            <MovieCover key={movie.id} movie={movie} />
+          ))}
         </div>
       </section>
     </main>
