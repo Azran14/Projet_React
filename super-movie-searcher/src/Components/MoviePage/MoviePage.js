@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import "./MoviePage.css";
-import ReactStars from "react-rating-stars-component";
-import { imgPath } from "../../utils/constant";
+import { useState, useEffect } from 'react';
+import './MoviePage.css';
+import ReactStars from 'react-rating-stars-component';
+import { imgPath } from '../../utils/constant';
 import { getMovie, getMovieByGenre } from '../../service/movie/movie';
 
-import MovieCover from "../MovieCover/MovieCover";
+import MovieCover from '../MovieCover/MovieCover';
 
 const MoviePage = (id) => {
   const [movie, setMovie] = useState(null);
@@ -15,6 +15,11 @@ const MoviePage = (id) => {
       setMovie(data);
     });
   }, [id]);
+  useEffect(() => {
+    getMovieByGenre(movie?.genres?.[0].id).then((data) => {
+      setMovieSuggestion(data);
+    });
+  }, [movie.genres]);
 
   if (movie === null) {
     return null;
@@ -27,37 +32,31 @@ const MoviePage = (id) => {
     size: 25,
   };
 
-  useEffect(() => {
-    getMovieByGenre(movie?.genres?.[0].id).then((data) => {
-      setMovieSuggestion(data);
-    });
-  }, [movie.genres]);
-
   return (
     <main>
-      <section className="MoviePage-main">
-        <div className="MoviePage-image">
+      <section className='MoviePage-main'>
+        <div className='MoviePage-image'>
           <h2>{movie.title}</h2>
           <img src={imgPath + movie.poster_path} alt={movie.original_title} />
-          <div className="MoviePage-aside">
+          <div className='MoviePage-aside'>
             <ReactStars {...rateParams} />
-            <p className="MoviePage-content">
+            <p className='MoviePage-content'>
               Release date: {movie.release_date}
             </p>
             {/* <p className='MoviePage-content'>Runtime: {movie.runtime}</p> */}
           </div>
         </div>
-        <div className="MoviePage-body">
-          <h3 className="MoviePage-subtitle">Synopsis :</h3>
-          <p className="MoviePage-info">{movie.overview}</p>
-          <h3 className="MoviePage-subtitle">Genres :</h3>
-          <p className="MoviePage-info">
-            {movie?.genres?.map((genre) => genre.name + ", ")}
+        <div className='MoviePage-body'>
+          <h3 className='MoviePage-subtitle'>Synopsis :</h3>
+          <p className='MoviePage-info'>{movie.overview}</p>
+          <h3 className='MoviePage-subtitle'>Genres :</h3>
+          <p className='MoviePage-info'>
+            {movie?.genres?.map((genre) => genre.name + ', ')}
           </p>
-          <h3 className="MoviePage-subtitle">Producers :</h3>
-          <p className="MoviePage-info">
+          <h3 className='MoviePage-subtitle'>Producers :</h3>
+          <p className='MoviePage-info'>
             {movie?.production_companies?.map(
-              (production) => production.name + " "
+              (production) => production.name + ' '
             )}
           </p>
         </div>
